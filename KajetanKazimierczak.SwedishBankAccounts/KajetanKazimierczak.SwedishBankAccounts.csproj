@@ -9,8 +9,18 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageTags>swedish bank account validator validate</PackageTags>
     <Version>1.0.0-beta</Version>
-    <Description>Can validate most swedish bank account numbers consisting of a clearing number an account number</Description>
+    <Description>Can validate most swedish bank account numbers consisting of clearing number and account number</Description>
     <RepositoryUrl>https://github.com/kajetan-kazimierczak/SwedishBankAccounts</RepositoryUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageReleaseNotes>Initial release. Give it a go.</PackageReleaseNotes>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
