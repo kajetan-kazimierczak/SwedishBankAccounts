@@ -46,5 +46,21 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Tests
             Assert.AreEqual(clearingEnd, sut.ClearingNumberEnd);
 
         }
+
+        [TestCase("82149", "9234726124", true, ValidationResult.ChecksumValidated)]
+        [TestCase("8214", "9234726124", true, ValidationResult.ChecksumValidated)]
+        [TestCase("82148", "9234726124", false, ValidationResult.ClearingNumberInvalid)]
+        [TestCase("82149", "9234726125", false, ValidationResult.ChecksumInvalid)]
+        public void ShouldEvaluateAccountAndClearingNumbers(string clearingNumber, 
+            string accountNumber, 
+            bool expected,
+            ValidationResult validationResult)
+        {
+            var sut = new BankAccount(clearingNumber, accountNumber);
+
+            Assert.AreEqual(expected, sut.isValid);
+            Assert.AreEqual(validationResult, sut.ValidationResult);
+        }
+
     }
 }

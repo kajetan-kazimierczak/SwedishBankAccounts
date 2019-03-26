@@ -10,20 +10,22 @@ Validate Swedish Bank Accounts
 
 ## Usage
 
-            var account = new BankAccount(accountNumber);
+```csharp
+var account = new BankAccount(clearigNumber, accountNumber);
 
-            if (!account.isValid)
-            {
-                Console.WriteLine("Account number invalid");
-                Console.WriteLine($"Reason: {account.ValidationResult.ToString()}");
-                return;
-            }
+if (!account.isValid)
+{
+    Console.WriteLine("Account number invalid");
+    Console.WriteLine($"Reason: {account.ValidationResult.ToString()}");
+    return;
+}
 
-            Console.WriteLine("Account number valid");
-            Console.WriteLine($"Validation result: {account.ValidationResult.ToString()}");
-            Console.WriteLine($"Bank: {account.BankName}");
-            Console.WriteLine($"Clearing number: {account.ClearingNumber}");
-            Console.WriteLine($"Account number:  {account.AccountNumber}");
+Console.WriteLine("Account number valid");
+Console.WriteLine($"Validation result: {account.ValidationResult.ToString()}");
+Console.WriteLine($"Bank: {account.BankName}");
+Console.WriteLine($"Clearing number: {account.ClearingNumber}");
+Console.WriteLine($"Account number:  {account.AccountNumber}");
+```
 
 ## Known issues
 Can not validate some Swedbank accounts with 5 digit clearing number.

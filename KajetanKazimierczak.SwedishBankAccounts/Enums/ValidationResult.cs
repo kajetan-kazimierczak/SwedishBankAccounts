@@ -7,7 +7,8 @@
         AccountNumberLengthInvalid = 2,
         ClearingNumberLengthInvalid = 3,
         UnknownClearingNumber = 4,
-        ProbablyCannotBeValidatedWithChecksum = 5,
+        PossiblyCannotBeValidatedWithChecksum = 5,
+        ClearingNumberInvalid = 6,
         Unknown = 9999
     }
 }

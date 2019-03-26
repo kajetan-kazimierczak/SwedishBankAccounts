@@ -8,6 +8,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts
     public class BankAccount
     {
         private readonly string _clearingNumber;
+        private readonly string _clearingCheckDigit;
         private readonly string _accountNumber;
         private string _bank;
         private bool _isValid;
@@ -16,15 +17,32 @@ namespace KajetanKazimierczak.SwedishBankAccounts
         public BankAccount(string fullAccountNumber)
         {
             var accountNumber = fullAccountNumber?.ToDigits();
-            if (accountNumber?.Length < 4)
+
+            if (accountNumber.Length > 15)
+            {
+                _isValid = false;
+                _validationResult = ValidationResult.AccountNumberLengthInvalid;
+                return;
+            }
+            
+            if(string.IsNullOrEmpty(accountNumber) || accountNumber.Length < 5)
             {
                 _isValid = false;
                 _validationResult = ValidationResult.ClearingNumberLengthInvalid;
                 return;
             }
 
-            _clearingNumber = accountNumber?.Substring(0, 4);
-            _accountNumber = accountNumber?.Substring(4);
+            var clearingNumberLength = 4;
+            //if (accountNumber.StartsWith("8")
+            //    && accountNumber.Substring(0, 4) != "8351")
+            //{
+            //    // Swedbank Sparbankerna
+            //    // https://sv.wikipedia.org/wiki/Lista_%C3%B6ver_clearingnummer_till_svenska_banker
+            //    clearingNumberLength = 5;
+            //}
+
+            _clearingNumber = accountNumber.Substring(0, clearingNumberLength);
+            _accountNumber = accountNumber.Substring(clearingNumberLength);
 
             Validate();
         }
@@ -33,6 +51,12 @@ namespace KajetanKazimierczak.SwedishBankAccounts
         {
             _clearingNumber = clearingNumber?.ToDigits();
             _accountNumber = accountNumber?.ToDigits();
+
+            if (_clearingNumber.Length == 5)
+            {
+                _clearingCheckDigit = _clearingNumber[4].ToString();
+                _clearingNumber = _clearingNumber.Substring(0, 4);
+            }
 
             Validate();
         }
@@ -43,7 +67,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts
         public string BankName => _bank;
 
         /// <summary>
-        /// Cleaned up Clearing Number (usually first 4 digits of the account)
+        /// Cleaned up Clearing Number (first 4 digits of the account)
         /// </summary>
         public string ClearingNumber => _clearingNumber;
 
@@ -61,9 +85,15 @@ namespace KajetanKazimierczak.SwedishBankAccounts
         /// </summary>
         public ValidationResult ValidationResult => _validationResult;
 
+        public string FormatBgc16 =>
+                _clearingNumber + _accountNumber.PadLeft(12, '0');
+            
+        
+
         private void Validate()
-        {
-            _accountConfiguration = Configuration.Configuration.GetConfigForClearingNumber(_clearingNumber);
+        { 
+            _accountConfiguration = Configuration
+                .Configuration.GetConfigForClearingNumber(_clearingNumber);
             if (_accountConfiguration == null)
             {
                 _validationResult = ValidationResult.UnknownClearingNumber;
@@ -127,26 +157,40 @@ namespace KajetanKazimierczak.SwedishBankAccounts
                     return;
                 }
 
-                if (_accountConfiguration.BankAccountTypeComment == BankAccountTypeComment.Type3)
+                // Swedbank
+                if (_accountConfiguration.BankAccountTypeComment == BankAccountTypeComment.Type3 
+                    && _clearingNumber.StartsWith("8"))
                 {
-                    if (_clearingNumber.StartsWith("8") && _clearingNumber.Length == 5)
+                    if (!string.IsNullOrEmpty(_clearingCheckDigit))
                     {
-                        // Here be dragons... possibly Swedbank account that can not be validated.
-                        _isValid = true;
-                        _validationResult = ValidationResult.ProbablyCannotBeValidatedWithChecksum;
-                        return;
+                        _isValid = Modulus10.ValidateChecksum(_clearingNumber + _clearingCheckDigit);
+
+                        if (!_isValid)
+                        {
+                            _validationResult = ValidationResult.ClearingNumberInvalid;
+                            return;
+                        }
                     }
+                   
 
                     var number = _accountNumber;
                     _isValid = Modulus10.ValidateChecksum(number);
                     _validationResult =
                         _isValid ? ValidationResult.ChecksumValidated : ValidationResult.ChecksumInvalid;
-                  
+
+                }
+
+                if (_accountConfiguration.BankAccountTypeComment == BankAccountTypeComment.Type3
+                    && !_clearingNumber.StartsWith("8"))
+                {
+                    var number = _accountNumber;
+                    _isValid = Modulus10.ValidateChecksum(number);
+                    _validationResult =
+                        _isValid ? ValidationResult.ChecksumValidated : ValidationResult.ChecksumInvalid;
+
+                    return;
                 }
             }
-
-
         }
-
     }
 }

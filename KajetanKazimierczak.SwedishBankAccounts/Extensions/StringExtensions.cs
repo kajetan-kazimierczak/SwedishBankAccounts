@@ -5,7 +5,7 @@
         public static string ToDigits(this string str)
         {
             var res = string.Empty;
-            if (string.IsNullOrEmpty(str)) return str;
+            if (string.IsNullOrEmpty(str)) return string.Empty;
 
             for (int i = 0; i < str.Length; i++)
             {
