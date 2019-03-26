@@ -5,41 +5,37 @@ using KajetanKazimierczak.SwedishBankAccounts.Extensions;
 namespace KajetanKazimierczak.SwedishBankAccounts
 {
     /// <summary>
-    /// Swedish Bankgiro
+    /// Swedish Plusgiro
     /// </summary>
-    public class BankGiro
+    public class PlusGiro
     {
         private bool _isValid;
         private string _accountNumber;
         private ValidationResult _validationResult;
 
-        /// <summary>
-        /// Construct BankGiro object
-        /// </summary>
-        /// <param name="bankGiroNumber">BankGiro account number</param>
-        public BankGiro(string bankGiroNumber)
+        public PlusGiro(string plusGiro)
         {
-            _accountNumber = bankGiroNumber;
+            _accountNumber = plusGiro;
 
-            if (string.IsNullOrEmpty(bankGiroNumber))
+            if (string.IsNullOrEmpty(plusGiro))
             {
                 _isValid = false;
                 _validationResult = ValidationResult.InvalidAccountNumberLength;
                 return;
             }
 
-            var parts = bankGiroNumber.Split('-');
+            var parts = plusGiro.Split('-');
             if (parts.Length != 2
-                || !(parts[0].ToDigits().Length == 3 || parts[0].ToDigits().Length == 4)
-                || parts[1].ToDigits().Length != 4)
+                || (parts[0].ToDigits().Length < 1 || parts[0].ToDigits().Length > 7)
+                || parts[1].ToDigits().Length != 1)
             {
                 _isValid = false;
                 _validationResult = ValidationResult.InvalidFormat;
                 return;
             }
             
-            var accountNumber = bankGiroNumber.ToDigits();
-            if (accountNumber.Length < 7 || accountNumber.Length > 8)
+            var accountNumber = plusGiro.ToDigits();
+            if (accountNumber.Length < 2 || accountNumber.Length > 8)
             {
                 _isValid = false;
                 _validationResult = ValidationResult.InvalidAccountNumberLength;
@@ -53,6 +49,8 @@ namespace KajetanKazimierczak.SwedishBankAccounts
   
         }
 
+    
+
         public string AccountNumber => _accountNumber;
 
         /// <summary>
@@ -61,19 +59,9 @@ namespace KajetanKazimierczak.SwedishBankAccounts
         public bool IsValid => _isValid;
 
         /// <summary>
-        /// Result of the validation
+        /// Get account number formatted for use in BGC files.
         /// </summary>
         public ValidationResult ValidationResult => _validationResult;
-
-        /// <summary>
-        /// Get account number formatted for use in BGC files.
-        /// </summary>
-        public string FormatBgc10 => _accountNumber.ToDigits().PadLeft(10, '0');
-
-        /// <summary>
-        /// Get account number formatted for use in BGC files.
-        /// </summary>
-        public string FormatBgc16 => _accountNumber.ToDigits().PadLeft(16, '0');
 
     }
 }
