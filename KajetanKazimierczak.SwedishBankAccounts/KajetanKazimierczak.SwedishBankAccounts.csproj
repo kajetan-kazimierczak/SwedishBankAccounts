@@ -14,6 +14,7 @@
     <PackageLicenseUrl></PackageLicenseUrl>
     <PackageReleaseNotes>Initial release. Give it a go.</PackageReleaseNotes>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/kajetan-kazimierczak/SwedishBankAccounts</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>

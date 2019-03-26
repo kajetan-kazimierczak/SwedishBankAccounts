@@ -26,14 +26,14 @@ namespace KajetanKazimierczak.SwedishBankAccounts
             if (accountNumber.Length > 15)
             {
                 _isValid = false;
-                _validationResult = ValidationResult.AccountNumberLengthInvalid;
+                _validationResult = ValidationResult.InvalidAccountNumberLength;
                 return;
             }
             
             if(string.IsNullOrEmpty(accountNumber) || accountNumber.Length < 5)
             {
                 _isValid = false;
-                _validationResult = ValidationResult.ClearingNumberLengthInvalid;
+                _validationResult = ValidationResult.InvalidClearingNumberLength;
                 return;
             }
 
@@ -120,14 +120,14 @@ namespace KajetanKazimierczak.SwedishBankAccounts
             {
                 if (_clearingNumber.Length != 4)
                 {
-                    _validationResult = ValidationResult.ClearingNumberLengthInvalid;
+                    _validationResult = ValidationResult.InvalidClearingNumberLength;
                     _isValid = false;
                     return;
                 }
 
                 if (_accountNumber.Length != 7)
                 {
-                    _validationResult = ValidationResult.AccountNumberLengthInvalid;
+                    _validationResult = ValidationResult.InvalidAccountNumberLength;
                     _isValid = false;
                     return;
                 }
@@ -137,7 +137,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts
                     var number = _clearingNumber.Substring(1) + _accountNumber;
                     _isValid = Modulus11.ValidateChecksum(number);
                     _validationResult =
-                        _isValid ? ValidationResult.ChecksumValidated : ValidationResult.ChecksumInvalid;
+                        _isValid ? ValidationResult.ChecksumValidated : ValidationResult.InvalidChecksum;
                     return;
                 }
                 if (_accountConfiguration.BankAccountTypeComment == BankAccountTypeComment.Type2)
@@ -145,7 +145,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts
                     var number = _clearingNumber + _accountNumber;
                     _isValid = Modulus11.ValidateChecksum(number);
                     _validationResult =
-                        _isValid ? ValidationResult.ChecksumValidated : ValidationResult.ChecksumInvalid;
+                        _isValid ? ValidationResult.ChecksumValidated : ValidationResult.InvalidChecksum;
                     return;
                 }
             }
@@ -157,13 +157,13 @@ namespace KajetanKazimierczak.SwedishBankAccounts
                     if (_accountNumber.Length != 10)
                     {
                         _isValid = false;
-                        _validationResult = ValidationResult.AccountNumberLengthInvalid;
+                        _validationResult = ValidationResult.InvalidAccountNumberLength;
                     }
 
                     var number = _accountNumber;
                     _isValid = Modulus10.ValidateChecksum(number);
                     _validationResult =
-                        _isValid ? ValidationResult.ChecksumValidated : ValidationResult.ChecksumInvalid;
+                        _isValid ? ValidationResult.ChecksumValidated : ValidationResult.InvalidChecksum;
                     return;
                 }
 
@@ -172,13 +172,13 @@ namespace KajetanKazimierczak.SwedishBankAccounts
                     if (_accountNumber.Length != 9)
                     {
                         _isValid = false;
-                        _validationResult = ValidationResult.AccountNumberLengthInvalid;
+                        _validationResult = ValidationResult.InvalidAccountNumberLength;
                     }
 
                     var number = _accountNumber;
                     _isValid = Modulus11.ValidateChecksum(number);
                     _validationResult =
-                        _isValid ? ValidationResult.ChecksumValidated : ValidationResult.ChecksumInvalid;
+                        _isValid ? ValidationResult.ChecksumValidated : ValidationResult.InvalidChecksum;
                     return;
                 }
 
@@ -189,7 +189,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts
                     if (_accountNumber.Length < 1 || _accountNumber.Length > 10)
                     {
                         _isValid = false;
-                        _validationResult = ValidationResult.AccountNumberLengthInvalid;
+                        _validationResult = ValidationResult.InvalidAccountNumberLength;
                     }
 
                     if (!string.IsNullOrEmpty(_clearingCheckDigit))
@@ -198,7 +198,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts
 
                         if (!_isValid)
                         {
-                            _validationResult = ValidationResult.ClearingNumberInvalid;
+                            _validationResult = ValidationResult.InvalidClearingNumber;
                             return;
                         }
                     }
@@ -207,7 +207,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts
                     var number = _accountNumber;
                     _isValid = Modulus10.ValidateChecksum(number);
                     _validationResult =
-                        _isValid ? ValidationResult.ChecksumValidated : ValidationResult.ChecksumInvalid;
+                        _isValid ? ValidationResult.ChecksumValidated : ValidationResult.InvalidChecksum;
 
                 }
 
@@ -217,14 +217,14 @@ namespace KajetanKazimierczak.SwedishBankAccounts
                     if (_accountNumber.Length < 1 || _accountNumber.Length > 10)
                     {
                         _isValid = false;
-                        _validationResult = ValidationResult.AccountNumberLengthInvalid;
+                        _validationResult = ValidationResult.InvalidAccountNumberLength;
                     }
 
 
                     var number = _accountNumber;
                     _isValid = Modulus10.ValidateChecksum(number);
                     _validationResult =
-                        _isValid ? ValidationResult.ChecksumValidated : ValidationResult.ChecksumInvalid;
+                        _isValid ? ValidationResult.ChecksumValidated : ValidationResult.InvalidChecksum;
 
                     return;
                 }
