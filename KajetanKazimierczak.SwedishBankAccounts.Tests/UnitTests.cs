@@ -62,5 +62,11 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Tests
             Assert.AreEqual(validationResult, sut.ValidationResult);
         }
 
+        [TestCase("82149", "9234726124", "8214009234726124")]
+        [TestCase("3300", "1212121212", "3300001212121212")]
+        public void ShouldFormatBgc16(string clearingNumber, string accountNumber, string expected)
+        {
+
+        }
     }
 }

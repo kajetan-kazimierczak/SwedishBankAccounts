@@ -14,6 +14,11 @@ namespace KajetanKazimierczak.SwedishBankAccounts
         private bool _isValid;
         private ValidationResult _validationResult = ValidationResult.Unknown;
         private AccountConfiguration _accountConfiguration;
+
+        /// <summary>
+        /// Construct BankAccount object
+        /// </summary>
+        /// <param name="fullAccountNumber">Account Number (clearing number included)</param>
         public BankAccount(string fullAccountNumber)
         {
             var accountNumber = fullAccountNumber?.ToDigits();
@@ -47,6 +52,11 @@ namespace KajetanKazimierczak.SwedishBankAccounts
             Validate();
         }
 
+        /// <summary>
+        /// Construct BankAccount object
+        /// </summary>
+        /// <param name="clearingNumber">Account Clearing Number (4-5 digits)</param>
+        /// <param name="accountNumber">Account Number</param>
         public BankAccount(string clearingNumber, string accountNumber)
         {
             _clearingNumber = clearingNumber?.ToDigits();
@@ -85,6 +95,9 @@ namespace KajetanKazimierczak.SwedishBankAccounts
         /// </summary>
         public ValidationResult ValidationResult => _validationResult;
 
+        /// <summary>
+        /// Get account number formatted for use in BGC files.
+        /// </summary>
         public string FormatBgc16 =>
                 _clearingNumber + _accountNumber.PadLeft(12, '0');
             
@@ -141,6 +154,12 @@ namespace KajetanKazimierczak.SwedishBankAccounts
             {
                 if (_accountConfiguration.BankAccountTypeComment == BankAccountTypeComment.Type1)
                 {
+                    if (_accountNumber.Length != 10)
+                    {
+                        _isValid = false;
+                        _validationResult = ValidationResult.AccountNumberLengthInvalid;
+                    }
+
                     var number = _accountNumber;
                     _isValid = Modulus10.ValidateChecksum(number);
                     _validationResult =
@@ -150,6 +169,12 @@ namespace KajetanKazimierczak.SwedishBankAccounts
 
                 if (_accountConfiguration.BankAccountTypeComment == BankAccountTypeComment.Type2)
                 {
+                    if (_accountNumber.Length != 9)
+                    {
+                        _isValid = false;
+                        _validationResult = ValidationResult.AccountNumberLengthInvalid;
+                    }
+
                     var number = _accountNumber;
                     _isValid = Modulus11.ValidateChecksum(number);
                     _validationResult =
@@ -157,10 +182,16 @@ namespace KajetanKazimierczak.SwedishBankAccounts
                     return;
                 }
 
-                // Swedbank
+                // Swedbank & Sparbankerna
                 if (_accountConfiguration.BankAccountTypeComment == BankAccountTypeComment.Type3 
                     && _clearingNumber.StartsWith("8"))
                 {
+                    if (_accountNumber.Length < 1 || _accountNumber.Length > 10)
+                    {
+                        _isValid = false;
+                        _validationResult = ValidationResult.AccountNumberLengthInvalid;
+                    }
+
                     if (!string.IsNullOrEmpty(_clearingCheckDigit))
                     {
                         _isValid = Modulus10.ValidateChecksum(_clearingNumber + _clearingCheckDigit);
@@ -183,6 +214,13 @@ namespace KajetanKazimierczak.SwedishBankAccounts
                 if (_accountConfiguration.BankAccountTypeComment == BankAccountTypeComment.Type3
                     && !_clearingNumber.StartsWith("8"))
                 {
+                    if (_accountNumber.Length < 1 || _accountNumber.Length > 10)
+                    {
+                        _isValid = false;
+                        _validationResult = ValidationResult.AccountNumberLengthInvalid;
+                    }
+
+
                     var number = _accountNumber;
                     _isValid = Modulus10.ValidateChecksum(number);
                     _validationResult =
