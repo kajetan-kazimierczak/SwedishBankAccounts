@@ -1,4 +1,7 @@
 # SwedishBankAccounts
+[![NuGet Badge](https://buildstats.info/nuget/KajetanKazimierczak.SwedishBankAccounts)](https://www.nuget.org/packages/KajetanKazimierczak.SwedishBankAccounts/)
+## Info 
+
 Validate Swedish Bank Account numbers, PlusGiro and BankGiro. The account numbers are validated with checksum calculations.
 
 ## Based on 
