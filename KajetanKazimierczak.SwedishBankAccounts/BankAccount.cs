@@ -88,7 +88,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts
         /// <summary>
         /// Shows if account is valid or not. Check ValidationResult for more info
         /// </summary>
-        public bool isValid => _isValid;
+        public bool IsValid => _isValid;
 
         /// <summary>
         /// Result of the validation

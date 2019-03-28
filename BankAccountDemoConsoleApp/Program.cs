@@ -11,7 +11,7 @@ namespace BankAccountDemoConsoleApp
 
             var account = new BankAccount(accountNumber);
 
-            if (!account.isValid)
+            if (!account.IsValid)
             {
                 Console.WriteLine("Account number invalid");
                 Console.WriteLine($"Reason: {account.ValidationResult.ToString()}");

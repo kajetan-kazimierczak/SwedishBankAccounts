@@ -58,7 +58,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Tests
         {
             var sut = new BankAccount(clearingNumber, accountNumber);
 
-            Assert.AreEqual(expected, sut.isValid);
+            Assert.AreEqual(expected, sut.IsValid);
             Assert.AreEqual(validationResult, sut.ValidationResult);
         }
 

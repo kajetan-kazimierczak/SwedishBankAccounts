@@ -21,7 +21,7 @@ Instantiate the BankAccount, PlusGiro or BankGiro class and check the IsValid pr
 ```csharp
 var account = new BankAccount(clearigNumber, accountNumber);
 
-if (!account.isValid)
+if (!account.IsValid)
 {
     Console.WriteLine("Account number invalid");
     Console.WriteLine($"Reason: {account.ValidationResult.ToString()}");
@@ -46,7 +46,7 @@ var account = new BankAccount(fullAccountNumber);
 ```csharp
 var account = new PlusGiro(accountNumber);
 
-if (!account.isValid)
+if (!account.IsValid)
 {
     Console.WriteLine("Account number invalid");
     Console.WriteLine($"Reason: {account.ValidationResult.ToString()}");
@@ -62,7 +62,7 @@ Console.WriteLine($"Validation result: {account.ValidationResult.ToString()}");
 ```csharp
 var account = new BankGiro(accountNumber);
 
-if (!account.isValid)
+if (!account.IsValid)
 {
     Console.WriteLine("Account number invalid");
     Console.WriteLine($"Reason: {account.ValidationResult.ToString()}");
