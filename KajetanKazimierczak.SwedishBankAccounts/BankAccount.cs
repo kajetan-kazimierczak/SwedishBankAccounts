@@ -23,7 +23,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts
         {
             var accountNumber = fullAccountNumber?.ToDigits();
 
-            if (accountNumber.Length > 15)
+            if (!string.IsNullOrEmpty(accountNumber) && accountNumber.Length > 15)
             {
                 _isValid = false;
                 _validationResult = ValidationResult.InvalidAccountNumberLength;
@@ -62,10 +62,17 @@ namespace KajetanKazimierczak.SwedishBankAccounts
             _clearingNumber = clearingNumber?.ToDigits();
             _accountNumber = accountNumber?.ToDigits();
 
-            if (_clearingNumber.Length == 5)
+            if (_clearingNumber.Length == 5 && _clearingNumber.StartsWith("8"))
             {
                 _clearingCheckDigit = _clearingNumber[4].ToString();
                 _clearingNumber = _clearingNumber.Substring(0, 4);
+            }
+
+            if (_clearingNumber.Length != 4)
+            {
+                _isValid = false;
+                _validationResult = ValidationResult.InvalidClearingNumberLength;
+                return;
             }
 
             Validate();

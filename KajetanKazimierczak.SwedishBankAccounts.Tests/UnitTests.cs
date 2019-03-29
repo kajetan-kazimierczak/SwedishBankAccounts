@@ -52,7 +52,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Tests
         [TestCase("82148", "9234726124", false, ValidationResult.InvalidClearingNumber)]
         [TestCase("82149", "9234726125", false, ValidationResult.InvalidChecksum)]
         [TestCase("3300", "121212-1212", true, ValidationResult.ChecksumValidated)]
-        [TestCase("33000", "121212-1212", true, ValidationResult.InvalidClearingNumberLength)]
+        [TestCase("33000", "121212-1212", false, ValidationResult.InvalidClearingNumberLength)]
         public void ShouldEvaluateAccountAndClearingNumbers(string clearingNumber, 
             string accountNumber, 
             bool expected,
