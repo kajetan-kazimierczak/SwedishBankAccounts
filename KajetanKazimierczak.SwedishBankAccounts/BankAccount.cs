@@ -193,12 +193,6 @@ namespace KajetanKazimierczak.SwedishBankAccounts
                 if (_accountConfiguration.BankAccountTypeComment == BankAccountTypeComment.Type3 
                     && _clearingNumber.StartsWith("8"))
                 {
-                    if (_accountNumber.Length < 1 || _accountNumber.Length > 10)
-                    {
-                        _isValid = false;
-                        _validationResult = ValidationResult.InvalidAccountNumberLength;
-                    }
-
                     if (!string.IsNullOrEmpty(_clearingCheckDigit))
                     {
                         _isValid = Modulus10.ValidateChecksum(_clearingNumber + _clearingCheckDigit);
@@ -209,8 +203,14 @@ namespace KajetanKazimierczak.SwedishBankAccounts
                             return;
                         }
                     }
-                   
 
+                    if (_accountNumber.Length < 1 || _accountNumber.Length > 10)
+                    {
+                        _isValid = false;
+                        _validationResult = ValidationResult.InvalidAccountNumberLength;
+                        return;
+                    }
+                    
                     var number = _accountNumber;
                     _isValid = Modulus10.ValidateChecksum(number);
                     _validationResult =
