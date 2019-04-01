@@ -1,4 +1,5 @@
-﻿using KajetanKazimierczak.SwedishBankAccounts.Checksum;
+﻿using System;
+using KajetanKazimierczak.SwedishBankAccounts.Checksum;
 using KajetanKazimierczak.SwedishBankAccounts.Configuration;
 using KajetanKazimierczak.SwedishBankAccounts.Enums;
 using KajetanKazimierczak.SwedishBankAccounts.Extensions;
@@ -21,7 +22,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts
         /// <param name="fullAccountNumber">Account Number (clearing number included)</param>
         public BankAccount(string fullAccountNumber)
         {
-            var accountNumber = fullAccountNumber?.ToDigits();
+            var accountNumber = fullAccountNumber?.ToDigits() ?? string.Empty;
 
             if (!string.IsNullOrEmpty(accountNumber) && accountNumber.Length > 15)
             {
@@ -59,8 +60,8 @@ namespace KajetanKazimierczak.SwedishBankAccounts
         /// <param name="accountNumber">Account Number</param>
         public BankAccount(string clearingNumber, string accountNumber)
         {
-            _clearingNumber = clearingNumber?.ToDigits();
-            _accountNumber = accountNumber?.ToDigits();
+            _clearingNumber = clearingNumber?.ToDigits() ?? string.Empty;
+            _accountNumber = accountNumber?.ToDigits() ?? string.Empty;
 
             if (_clearingNumber.Length == 5 && _clearingNumber.StartsWith("8"))
             {

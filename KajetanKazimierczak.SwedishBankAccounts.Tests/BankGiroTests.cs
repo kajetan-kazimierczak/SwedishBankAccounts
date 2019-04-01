@@ -19,6 +19,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Tests
         [TestCase("354-724-7", false, ValidationResult.InvalidFormat)]
         [TestCase("3547247", false, ValidationResult.InvalidFormat)]
         [TestCase("354-7", false, ValidationResult.InvalidFormat)]
+        [TestCase(null, false, ValidationResult.InvalidAccountNumberLength)]
         public void ShouldValidateBankGiroAccount(string account, 
             bool valid, 
             ValidationResult validationResult)

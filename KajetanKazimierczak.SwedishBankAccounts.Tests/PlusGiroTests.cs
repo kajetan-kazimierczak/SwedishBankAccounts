@@ -13,6 +13,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Tests
         [TestCase("354-7", false, ValidationResult.InvalidChecksum)]
         [TestCase("1160499-8", true, ValidationResult.ChecksumValidated)]
         [TestCase("116 04 99-8", true, ValidationResult.ChecksumValidated)]
+        [TestCase(null, false, ValidationResult.InvalidAccountNumberLength)]
         public void ShouldValidatePlusGiroAccount(string account, 
             bool valid, 
             ValidationResult validationResult)
