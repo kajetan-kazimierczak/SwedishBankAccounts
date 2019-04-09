@@ -62,12 +62,12 @@ namespace KajetanKazimierczak.SwedishBankAccounts
         public string AccountNumber => _accountNumber;
 
         /// <summary>
-        /// Shows if account is valid or not. Check ValidationResult for more info
+        /// Shows if account is valid or not. Check ValidationResult for more info.
         /// </summary>
         public bool IsValid => _isValid;
 
         /// <summary>
-        /// Result of the validation
+        /// Result of the validation.
         /// </summary>
         public ValidationResult ValidationResult => _validationResult;
 

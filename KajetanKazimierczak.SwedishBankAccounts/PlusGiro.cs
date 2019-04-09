@@ -68,7 +68,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts
         public bool IsValid => _isValid;
 
         /// <summary>
-        /// Get account number formatted for use in BGC files.
+        /// Result of the validation.
         /// </summary>
         public ValidationResult ValidationResult => _validationResult;
 
