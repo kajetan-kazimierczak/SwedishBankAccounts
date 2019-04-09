@@ -16,29 +16,32 @@ namespace KajetanKazimierczak.SwedishBankAccounts
         /// <summary>
         /// Construct BankGiro object
         /// </summary>
-        /// <param name="bankGiroNumber">BankGiro account number</param>
-        public BankGiro(string bankGiroNumber)
+        /// <param name="bankGiro">BankGiro account number. Hyphen optional.</param>
+        public BankGiro(string bankGiro)
         {
-            _accountNumber = bankGiroNumber;
+            _accountNumber = bankGiro;
 
-            if (string.IsNullOrEmpty(bankGiroNumber))
+            if (string.IsNullOrWhiteSpace(bankGiro))
             {
                 _isValid = false;
                 _validationResult = ValidationResult.InvalidAccountNumberLength;
                 return;
             }
 
-            var parts = bankGiroNumber.Split('-');
-            if (parts.Length != 2
-                || !(parts[0].ToDigits().Length == 3 || parts[0].ToDigits().Length == 4)
-                || parts[1].ToDigits().Length != 4)
+            if (bankGiro.ToDigits() != bankGiro)
             {
-                _isValid = false;
-                _validationResult = ValidationResult.InvalidFormat;
-                return;
+                var parts = bankGiro.Split('-');
+                if (parts.Length != 2
+                    || !(parts[0].ToDigits().Length == 3 || parts[0].ToDigits().Length == 4)
+                    || parts[1].ToDigits().Length != 4)
+                {
+                    _isValid = false;
+                    _validationResult = ValidationResult.InvalidFormat;
+                    return;
+                }
             }
             
-            var accountNumber = bankGiroNumber.ToDigits();
+            var accountNumber = bankGiro.ToDigits();
             if (accountNumber.Length < 7 || accountNumber.Length > 8)
             {
                 _isValid = false;
@@ -53,6 +56,9 @@ namespace KajetanKazimierczak.SwedishBankAccounts
   
         }
 
+        /// <summary>
+        /// Gets the account number
+        /// </summary>
         public string AccountNumber => _accountNumber;
 
         /// <summary>

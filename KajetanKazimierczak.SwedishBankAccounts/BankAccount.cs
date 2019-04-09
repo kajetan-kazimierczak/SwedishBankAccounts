@@ -1,11 +1,13 @@
-﻿using System;
-using KajetanKazimierczak.SwedishBankAccounts.Checksum;
+﻿using KajetanKazimierczak.SwedishBankAccounts.Checksum;
 using KajetanKazimierczak.SwedishBankAccounts.Configuration;
 using KajetanKazimierczak.SwedishBankAccounts.Enums;
 using KajetanKazimierczak.SwedishBankAccounts.Extensions;
 
 namespace KajetanKazimierczak.SwedishBankAccounts
 {
+    /// <summary>
+    /// Swedish bank account.
+    /// </summary>
     public class BankAccount
     {
         private readonly string _clearingNumber;

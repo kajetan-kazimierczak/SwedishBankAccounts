@@ -17,9 +17,11 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Tests
         [TestCase("158-5694", true, ValidationResult.ChecksumValidated)]
         [TestCase("354-7247", true, ValidationResult.ChecksumValidated)]
         [TestCase("354-724-7", false, ValidationResult.InvalidFormat)]
-        [TestCase("3547247", false, ValidationResult.InvalidFormat)]
+        [TestCase("3547247", true, ValidationResult.ChecksumValidated)]
         [TestCase("354-7", false, ValidationResult.InvalidFormat)]
+        [TestCase("3547", false, ValidationResult.InvalidAccountNumberLength)]
         [TestCase(null, false, ValidationResult.InvalidAccountNumberLength)]
+        [TestCase("", false, ValidationResult.InvalidAccountNumberLength)]
         public void ShouldValidateBankGiroAccount(string account, 
             bool valid, 
             ValidationResult validationResult)
