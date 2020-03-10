@@ -174,6 +174,18 @@ namespace KajetanKazimierczak.SwedishBankAccounts
                     _isValid = Modulus10.ValidateChecksum(number);
                     _validationResult =
                         _isValid ? ValidationResult.ChecksumValidated : ValidationResult.InvalidChecksum;
+
+                    // Nordea personkonto
+                    if (_clearingNumber == "3300")
+                    {
+                        var validPn = _accountNumber.IsValidPersonnummerSamordningsnummer();
+                        _isValid = _isValid && validPn;
+                        _validationResult =
+                            validPn ? _validationResult : ValidationResult.InvalidFormat;
+
+                        return;
+                    }
+
                     return;
                 }
 

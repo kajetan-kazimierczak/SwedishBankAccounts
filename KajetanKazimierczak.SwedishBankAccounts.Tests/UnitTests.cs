@@ -53,6 +53,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Tests
         [TestCase("82149", "9234726125", false, ValidationResult.InvalidChecksum)]
         [TestCase("3300", "121212-1212", true, ValidationResult.ChecksumValidated)]
         [TestCase("33000", "121212-1212", false, ValidationResult.InvalidClearingNumberLength)]
+        [TestCase("3300", "121232-1218", false, ValidationResult.InvalidFormat)]
         [TestCase(null, null, false, ValidationResult.InvalidClearingNumberLength)]
         public void ShouldEvaluateAccountAndClearingNumbers(string clearingNumber, 
             string accountNumber, 
@@ -69,7 +70,22 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Tests
         [TestCase("3300", "1212121212", "3300001212121212")]
         public void ShouldFormatBgc16(string clearingNumber, string accountNumber, string expected)
         {
+            var sut = new BankAccount(clearingNumber, accountNumber);
+            
+            Assert.AreEqual(expected, sut.FormatBgc16);
+        }
 
+        [TestCase("1212121212", true)]
+        [TestCase("1213121212", false)]
+        [TestCase("121", false)]
+        [TestCase("1212721212", true)]
+        [TestCase("1212321212", false)]
+
+        public void ShouldDetectInvalidPersonNummerSamordingsnummer(string accountNumber, bool expected)
+        {
+            var sut = accountNumber.IsValidPersonnummerSamordningsnummer();
+
+            Assert.AreEqual(expected, sut);
         }
     }
 }
