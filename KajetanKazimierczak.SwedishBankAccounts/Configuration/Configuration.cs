@@ -434,7 +434,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Configuration
 
         public static AccountConfiguration GetConfigForClearingNumber(string number)
         {
-            return GetConfigForClearingNumber(int.Parse(number?.ToDigits()));
+            return GetConfigForClearingNumber(int.Parse(number?.ToDigits() ?? "0"));
         }
         public static AccountConfiguration GetConfigForClearingNumber(int number)
         {
