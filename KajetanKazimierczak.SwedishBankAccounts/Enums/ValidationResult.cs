@@ -2,6 +2,9 @@
 
 namespace KajetanKazimierczak.SwedishBankAccounts.Enums
 {
+    /// <summary>
+    /// Detailed result of validation
+    /// </summary>
     public enum ValidationResult
     {
         /// <summary>
