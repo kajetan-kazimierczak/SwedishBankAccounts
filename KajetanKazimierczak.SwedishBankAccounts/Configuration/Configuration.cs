@@ -7,11 +7,14 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Configuration
 {
     internal static class Configuration
     {
+        // https://www.bankgirot.se/globalassets/dokument/anvandarmanualer/bankernaskontonummeruppbyggnad_anvandarmanual_sv.pdf
+        // version 2019-10-22
+
         private static List<AccountConfiguration> AccountConfigurations = new List<AccountConfiguration>
         {
             new AccountConfiguration
             {
-                BankName = "Amfa Bank AB",
+                BankName = "Svea Bank AB",
                 ClearingNumberStart = 9660,
                 ClearingNumberEnd = 9669,
                 BankAccountType = BankAccountType.Type1,
@@ -126,6 +129,14 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Configuration
                 BankName = "JAK Medlemsbank",
                 ClearingNumberStart = 9670,
                 ClearingNumberEnd = 9679,
+                BankAccountType = BankAccountType.Type1,
+                BankAccountTypeComment = BankAccountTypeComment.Type2
+            },
+            new AccountConfiguration
+            {
+                BankName = "Klarna Bank",
+                ClearingNumberStart = 9780,
+                ClearingNumberEnd = 9789,
                 BankAccountType = BankAccountType.Type1,
                 BankAccountTypeComment = BankAccountTypeComment.Type2
             },

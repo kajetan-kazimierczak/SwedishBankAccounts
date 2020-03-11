@@ -191,14 +191,9 @@ namespace KajetanKazimierczak.SwedishBankAccounts
 
                 if (_accountConfiguration.BankAccountTypeComment == BankAccountTypeComment.Type2)
                 {
-                    if (_accountNumber.Length != 9)
-                    {
-                        _isValid = false;
-                        _validationResult = ValidationResult.InvalidAccountNumberLength;
-                        return;
-                    }
-
+                   
                     var number = _accountNumber;
+                    while (number.Length > 9) number = number.Substring(1);
                     _isValid = Modulus11.ValidateChecksum(number);
                     _validationResult =
                         _isValid ? ValidationResult.ChecksumValidated : ValidationResult.InvalidChecksum;
