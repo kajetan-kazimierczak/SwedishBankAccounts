@@ -168,6 +168,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts
                     {
                         _isValid = false;
                         _validationResult = ValidationResult.InvalidAccountNumberLength;
+                        return;
                     }
 
                     var number = _accountNumber;
@@ -183,7 +184,6 @@ namespace KajetanKazimierczak.SwedishBankAccounts
                         _validationResult =
                             validPn ? _validationResult : ValidationResult.InvalidFormat;
 
-                        return;
                     }
 
                     return;
@@ -195,6 +195,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts
                     {
                         _isValid = false;
                         _validationResult = ValidationResult.InvalidAccountNumberLength;
+                        return;
                     }
 
                     var number = _accountNumber;
@@ -230,7 +231,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts
                     _isValid = Modulus10.ValidateChecksum(number);
                     _validationResult =
                         _isValid ? ValidationResult.ChecksumValidated : ValidationResult.InvalidChecksum;
-
+                    return;
                 }
 
                 if (_accountConfiguration.BankAccountTypeComment == BankAccountTypeComment.Type3
@@ -240,6 +241,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts
                     {
                         _isValid = false;
                         _validationResult = ValidationResult.InvalidAccountNumberLength;
+                        return;
                     }
 
 
