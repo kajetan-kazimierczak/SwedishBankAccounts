@@ -6,7 +6,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Configuration
     {
         public int ClearingNumberStart { get; set; }
         public int ClearingNumberEnd { get; set; }
-        public string BankName { get; set; }
+        public string BankName { get; set; } = string.Empty;
 
         public BankAccountType BankAccountType { get; set; }
         public BankAccountTypeComment BankAccountTypeComment { get; set; }

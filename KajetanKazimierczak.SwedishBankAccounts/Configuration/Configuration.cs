@@ -10,7 +10,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Configuration
         // https://www.bankgirot.se/globalassets/dokument/anvandarmanualer/bankernaskontonummeruppbyggnad_anvandarmanual_sv.pdf
         // version 2019-10-22
 
-        private static List<AccountConfiguration> AccountConfigurations = new List<AccountConfiguration>
+        private static readonly List<AccountConfiguration> AccountConfigurations = new List<AccountConfiguration>
         {
             new AccountConfiguration
             {

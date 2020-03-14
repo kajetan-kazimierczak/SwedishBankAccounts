@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.0</TargetFramework>
+    <LangVersion>8.0</LangVersion>
+    <Nullable>enable</Nullable>
     <Authors>Kajetan Kazimierczak</Authors>
     <Company />
     <Product>Swedish Bank Account number validator</Product>

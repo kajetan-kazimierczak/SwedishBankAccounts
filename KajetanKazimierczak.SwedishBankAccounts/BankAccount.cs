@@ -10,13 +10,13 @@ namespace KajetanKazimierczak.SwedishBankAccounts
     /// </summary>
     public class BankAccount
     {
-        private readonly string _clearingNumber;
-        private readonly string _clearingCheckDigit;
-        private readonly string _accountNumber;
-        private string _bank;
+        private readonly string _clearingNumber = string.Empty;
+        private readonly string _clearingCheckDigit = string.Empty;
+        private readonly string _accountNumber = string.Empty;
+        private string _bank = string.Empty;
         private bool _isValid;
         private ValidationResult _validationResult = ValidationResult.Unknown;
-        private AccountConfiguration _accountConfiguration;
+        private AccountConfiguration? _accountConfiguration;
 
         /// <summary>
         /// Construct BankAccount object

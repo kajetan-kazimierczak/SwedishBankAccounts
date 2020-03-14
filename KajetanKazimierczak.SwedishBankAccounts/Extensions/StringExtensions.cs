@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace KajetanKazimierczak.SwedishBankAccounts.Extensions
+﻿namespace KajetanKazimierczak.SwedishBankAccounts.Extensions
 {
     internal static class StringExtensions
     {
