@@ -1,4 +1,7 @@
-﻿namespace KajetanKazimierczak.SwedishBankAccounts.Checksum
+﻿using System;
+using System.Globalization;
+
+namespace KajetanKazimierczak.SwedishBankAccounts.Checksum
 {
     internal static class Modulus11
     {
@@ -12,7 +15,7 @@
             }
             var reminder = (sum % 11);
             if (reminder == 0 || reminder == 1) return "0";
-            return (11 - reminder).ToString();
+            return (11 - reminder).ToString(new CultureInfo("sv-SE"));
         }
 
         public static bool ValidateChecksum(string number)

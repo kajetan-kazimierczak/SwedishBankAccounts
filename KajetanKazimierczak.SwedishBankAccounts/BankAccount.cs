@@ -1,4 +1,5 @@
-﻿using KajetanKazimierczak.SwedishBankAccounts.Checksum;
+﻿using System;
+using KajetanKazimierczak.SwedishBankAccounts.Checksum;
 using KajetanKazimierczak.SwedishBankAccounts.Configuration;
 using KajetanKazimierczak.SwedishBankAccounts.Enums;
 using KajetanKazimierczak.SwedishBankAccounts.Extensions;
@@ -65,7 +66,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts
             _clearingNumber = clearingNumber?.ToDigits() ?? string.Empty;
             _accountNumber = accountNumber?.ToDigits() ?? string.Empty;
 
-            if (_clearingNumber.Length == 5 && _clearingNumber.StartsWith("8"))
+            if (_clearingNumber.Length == 5 && _clearingNumber.StartsWith("8", StringComparison.Ordinal))
             {
                 _clearingCheckDigit = _clearingNumber[4].ToString();
                 _clearingNumber = _clearingNumber.Substring(0, 4);
@@ -202,7 +203,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts
 
                 // Swedbank & Sparbankerna
                 if (_accountConfiguration.BankAccountTypeComment == BankAccountTypeComment.Type3 
-                    && _clearingNumber.StartsWith("8"))
+                    && _clearingNumber.StartsWith("8", StringComparison.Ordinal))
                 {
                     if (!string.IsNullOrEmpty(_clearingCheckDigit))
                     {
@@ -230,7 +231,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts
                 }
 
                 if (_accountConfiguration.BankAccountTypeComment == BankAccountTypeComment.Type3
-                    && !_clearingNumber.StartsWith("8"))
+                    && !_clearingNumber.StartsWith("8", StringComparison.Ordinal))
                 {
                     if (_accountNumber.Length < 1 || _accountNumber.Length > 10)
                     {

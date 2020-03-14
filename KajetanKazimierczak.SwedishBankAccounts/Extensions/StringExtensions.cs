@@ -1,4 +1,6 @@
-﻿namespace KajetanKazimierczak.SwedishBankAccounts.Extensions
+﻿using System.Globalization;
+
+namespace KajetanKazimierczak.SwedishBankAccounts.Extensions
 {
     internal static class StringExtensions
     {
@@ -29,9 +31,9 @@
             if (month.ToDigits() != month) return false;
             if (day.ToDigits() != day) return false;
 
-            if (int.Parse(month) > 12) return false;
+            if (int.Parse(month, new CultureInfo("sv-SE")) > 12) return false;
 
-            var intDay = int.Parse(day);
+            var intDay = int.Parse(day, new CultureInfo("sv-SE"));
             if (intDay > 31) intDay -= 60;
             if (intDay < 0 || intDay > 31) return false;
 

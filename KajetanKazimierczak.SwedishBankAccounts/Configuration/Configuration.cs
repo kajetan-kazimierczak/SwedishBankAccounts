@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using KajetanKazimierczak.SwedishBankAccounts.Enums;
 using KajetanKazimierczak.SwedishBankAccounts.Extensions;
@@ -445,7 +446,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Configuration
 
         public static AccountConfiguration GetConfigForClearingNumber(string number)
         {
-            return GetConfigForClearingNumber(int.Parse(number?.ToDigits() ?? "0"));
+            return GetConfigForClearingNumber(int.Parse(number?.ToDigits() ?? "0", new CultureInfo("sv-SE")));
         }
         public static AccountConfiguration GetConfigForClearingNumber(int number)
         {
