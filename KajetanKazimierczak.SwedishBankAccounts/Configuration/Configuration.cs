@@ -271,6 +271,14 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Configuration
             },
             new AccountConfiguration
             {
+                BankName = "Northmill Bank",
+                ClearingNumberStart = 9750,
+                ClearingNumberEnd = 9759,
+                BankAccountType = BankAccountType.Type1,
+                BankAccountTypeComment = BankAccountTypeComment.Type2
+            },
+            new AccountConfiguration
+            {
                 BankName = "Resurs Bank",
                 ClearingNumberStart = 9280,
                 ClearingNumberEnd = 9289,
