@@ -1,4 +1,5 @@
 # SwedishBankAccounts
+![.NET Core Tests](https://github.com/kajetan-kazimierczak/SwedishBankAccounts/workflows/.NET%20Core%20Tests/badge.svg)
 [![NuGet Badge](https://buildstats.info/nuget/KajetanKazimierczak.SwedishBankAccounts)](https://www.nuget.org/packages/KajetanKazimierczak.SwedishBankAccounts/)
 ## Info 
 
