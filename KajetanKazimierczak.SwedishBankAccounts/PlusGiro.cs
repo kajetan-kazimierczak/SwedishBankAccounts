@@ -72,5 +72,16 @@ namespace KajetanKazimierczak.SwedishBankAccounts
         /// </summary>
         public ValidationResult ValidationResult => _validationResult;
 
+        /// <summary>
+        /// Get account number formatted for use in BGC files.
+        /// </summary>
+        public string FormatBgc10 => _accountNumber.ToDigits().PadLeft(10, '0');
+
+        /// <summary>
+        /// Get account number formatted for use in BGC files.
+        /// </summary>
+        public string FormatBgc16 => _accountNumber.ToDigits().PadLeft(16, '0');
+
+
     }
 }
