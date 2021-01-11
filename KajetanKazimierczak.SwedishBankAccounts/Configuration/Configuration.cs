@@ -9,7 +9,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Configuration
     internal static class Configuration
     {
         // https://www.bankgirot.se/globalassets/dokument/anvandarmanualer/bankernaskontonummeruppbyggnad_anvandarmanual_sv.pdf
-        // version 2019-10-22
+        // version 2020-08-21
 
         private static readonly List<AccountConfiguration> AccountConfigurations = new List<AccountConfiguration>
         {
@@ -191,14 +191,6 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Configuration
             },
             new AccountConfiguration
             {
-                BankName = "MedMera Bank AB",
-                ClearingNumberStart = 9650,
-                ClearingNumberEnd = 9659,
-                BankAccountType = BankAccountType.Type1,
-                BankAccountTypeComment = BankAccountTypeComment.Type2
-            },
-            new AccountConfiguration
-            {
                 BankName = "Nordax Bank AB",
                 ClearingNumberStart = 9640,
                 ClearingNumberEnd = 9649,
@@ -271,7 +263,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Configuration
             },
             new AccountConfiguration
             {
-                BankName = "Northmill Bank",
+                BankName = "Northmill Bank AB",
                 ClearingNumberStart = 9750,
                 ClearingNumberEnd = 9759,
                 BankAccountType = BankAccountType.Type1,
