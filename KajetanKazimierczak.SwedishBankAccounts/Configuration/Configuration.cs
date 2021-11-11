@@ -444,11 +444,11 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Configuration
 
         };
 
-        public static AccountConfiguration GetConfigForClearingNumber(string number)
+        public static AccountConfiguration? GetConfigForClearingNumber(string number)
         {
             return GetConfigForClearingNumber(int.Parse(number?.ToDigits() ?? "0", new CultureInfo("sv-SE")));
         }
-        public static AccountConfiguration GetConfigForClearingNumber(int number)
+        public static AccountConfiguration? GetConfigForClearingNumber(int number)
         {
            // if(number.ToString().Length != 4) throw new ArgumentOutOfRangeException(nameof(number));
 
