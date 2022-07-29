@@ -101,11 +101,11 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Configuration
                 BankAccountType = BankAccountType.Type1,
                 BankAccountTypeComment = BankAccountTypeComment.Type2
             },
-            new AccountConfiguration
+           new AccountConfiguration
             {
-                BankName = "Forex Bank",
-                ClearingNumberStart = 9400,
-                ClearingNumberEnd = 9449,
+                BankName = "Ferratum Bank plc",
+                ClearingNumberStart = 9070,
+                ClearingNumberEnd = 9079,
                 BankAccountType = BankAccountType.Type1,
                 BankAccountTypeComment = BankAccountTypeComment.Type1
             },
