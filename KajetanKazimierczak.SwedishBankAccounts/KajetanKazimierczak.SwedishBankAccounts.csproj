@@ -15,7 +15,7 @@
     <RepositoryUrl>https://github.com/kajetan-kazimierczak/SwedishBankAccounts</RepositoryUrl>
     <PackageLicenseUrl></PackageLicenseUrl>
     <PackageReleaseNotes>
-      Update to doc 2022-06-20
+      Update to document version 2022-06-20
       Removed dotnet 5 target
     </PackageReleaseNotes>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
