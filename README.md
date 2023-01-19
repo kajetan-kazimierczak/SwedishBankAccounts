@@ -6,7 +6,7 @@
 Validate Swedish Bank Account numbers, PlusGiro and BankGiro. The account numbers are validated with checksum calculations.
 
 ## Based on 
-  [bankernaskontonummeruppbyggnad_anvandarmanual_sv.pdf](https://www.bankgirot.se/globalassets/dokument/anvandarmanualer/bankernaskontonummeruppbyggnad_anvandarmanual_sv.pdf) (2022-06-20)
+  [bankernaskontonummeruppbyggnad_anvandarmanual_sv.pdf](https://www.bankgirot.se/globalassets/dokument/anvandarmanualer/bankernaskontonummeruppbyggnad_anvandarmanual_sv.pdf) (2022-12-13)
   
   [11-modul.pdf](https://www.bankgirot.se/globalassets/dokument/anvandarmanualer/11-modul.pdf)
   

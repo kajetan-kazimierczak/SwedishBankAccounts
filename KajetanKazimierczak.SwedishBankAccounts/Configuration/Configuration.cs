@@ -151,6 +151,14 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Configuration
             },
             new AccountConfiguration
             {
+                BankName = "Lunar Bank A/S",
+                ClearingNumberStart = 9710,
+                ClearingNumberEnd = 9719,
+                BankAccountType = BankAccountType.Type1,
+                BankAccountTypeComment = BankAccountTypeComment.Type2
+            },
+            new AccountConfiguration
+            {
                 BankName = "Lån & Spar Bank Sverige",
                 ClearingNumberStart = 9630,
                 ClearingNumberEnd = 9639,
