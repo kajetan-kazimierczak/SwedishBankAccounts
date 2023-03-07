@@ -23,6 +23,14 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Configuration
             },
             new AccountConfiguration
             {
+                BankName = "Aion Bank SA",
+                ClearingNumberStart = 9580,
+                ClearingNumberEnd = 9589,
+                BankAccountType = BankAccountType.Type1,
+                BankAccountTypeComment = BankAccountTypeComment.Type1
+            },
+            new AccountConfiguration
+            {
                 BankName = "Avanza Bank AB",
                 ClearingNumberStart = 9550,
                 ClearingNumberEnd = 9569,
@@ -100,14 +108,6 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Configuration
                 ClearingNumberEnd = 9599,
                 BankAccountType = BankAccountType.Type1,
                 BankAccountTypeComment = BankAccountTypeComment.Type2
-            },
-           new AccountConfiguration
-            {
-                BankName = "Ferratum Bank plc",
-                ClearingNumberStart = 9070,
-                ClearingNumberEnd = 9079,
-                BankAccountType = BankAccountType.Type1,
-                BankAccountTypeComment = BankAccountTypeComment.Type1
             },
             new AccountConfiguration
             {
@@ -197,6 +197,14 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Configuration
                 BankAccountType = BankAccountType.Type1,
                 BankAccountTypeComment = BankAccountTypeComment.Type1
             },
+            new AccountConfiguration
+             {
+                 BankName = "Multitude Bank plc",
+                 ClearingNumberStart = 9070,
+                 ClearingNumberEnd = 9079,
+                 BankAccountType = BankAccountType.Type1,
+                 BankAccountTypeComment = BankAccountTypeComment.Type1
+             },
             new AccountConfiguration
             {
                 BankName = "Nordax Bank AB",
