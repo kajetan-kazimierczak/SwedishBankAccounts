@@ -194,8 +194,15 @@ namespace KajetanKazimierczak.SwedishBankAccounts
                 {
                    
                     var number = _accountNumber;
-                    while (number.Length > 9) number = number.Substring(1);
-                    _isValid = Modulus11.ValidateChecksum(number);
+                    while (number.Length > 9 && number.StartsWith("0")) number = number.Substring(1);
+                    if (number.Length != 9)
+                    {
+                        _isValid = false;
+                        _validationResult = ValidationResult.InvalidAccountNumberLength;
+                        return;
+                    }
+
+                        _isValid = Modulus11.ValidateChecksum(number);
                     _validationResult =
                         _isValid ? ValidationResult.ChecksumValidated : ValidationResult.InvalidChecksum;
                     return;
