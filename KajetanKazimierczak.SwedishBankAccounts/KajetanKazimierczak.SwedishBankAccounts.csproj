@@ -15,8 +15,7 @@
     <RepositoryUrl>https://github.com/kajetan-kazimierczak/SwedishBankAccounts</RepositoryUrl>
     <PackageLicenseUrl></PackageLicenseUrl>
     <PackageReleaseNotes>
-      Update to document version 2023-02-21
-      Added .NET 7 version
+      Buggfix: Sometimes incorrectly reported Handelsbanken accounts as valid.
     </PackageReleaseNotes>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/kajetan-kazimierczak/SwedishBankAccounts</PackageProjectUrl>
