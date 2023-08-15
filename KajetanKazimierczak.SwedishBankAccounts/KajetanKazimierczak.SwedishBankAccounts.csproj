@@ -10,11 +10,12 @@
     <Copyright>Kajetan Kazimierczak</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageTags>swedish bank account validator validate bankkonto bankgiro plusgiro</PackageTags>
-    <Version>1.1.0-beta1</Version>
+    <Version>1.1.0-beta2</Version>
     <Description>Can validate most swedish bank account numbers consisting of clearing number and account number. Also validates BankGiro and PlusGiro account numbers.</Description>
     <RepositoryUrl>https://github.com/kajetan-kazimierczak/SwedishBankAccounts</RepositoryUrl>
     <PackageLicenseUrl></PackageLicenseUrl>
     <PackageReleaseNotes>
+      Expoerimental P27 format support.
       Buggfix: Sometimes incorrectly reported Handelsbanken accounts as valid.
     </PackageReleaseNotes>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
