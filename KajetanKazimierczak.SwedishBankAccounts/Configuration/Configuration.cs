@@ -207,7 +207,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Configuration
              },
             new AccountConfiguration
             {
-                BankName = "Nordax Bank AB",
+                BankName = "NOBA Bank Group AB",
                 ClearingNumberStart = 9640,
                 ClearingNumberEnd = 9649,
                 BankAccountType = BankAccountType.Type1,

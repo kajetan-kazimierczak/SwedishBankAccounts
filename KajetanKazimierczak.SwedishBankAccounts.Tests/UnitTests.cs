@@ -15,7 +15,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Tests
         {
             var sut = Modulus11.GetChecksum(value);
 
-            Assert.AreEqual(expected, sut);
+            Assert.That(sut, Is.EqualTo(expected));
         }
 
         [TestCase("1212121212", "2")]
@@ -24,7 +24,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Tests
         {
             var sut = Modulus10.GetChecksum(value);
 
-            Assert.AreEqual(expected, sut);
+            Assert.That(sut, Is.EqualTo(expected));
         }
 
         [TestCase("1860 10 89976", "18601089976")]
@@ -33,7 +33,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Tests
         public void TestStringToDigits(string value, string expected)
         {
             var sut = value.ToDigits();
-            Assert.AreEqual(expected, sut);
+            Assert.That(sut, Is.EqualTo(expected));
         }
 
         [TestCase(9150, "Skandiabanken", 9150, 9169)]
@@ -41,9 +41,9 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Tests
         {
             var sut = Configuration.Configuration.GetConfigForClearingNumber(number);
 
-            Assert.AreEqual(bankName, sut.BankName);
-            Assert.AreEqual(clearingStart, sut.ClearingNumberStart);
-            Assert.AreEqual(clearingEnd, sut.ClearingNumberEnd);
+            Assert.That(sut.BankName, Is.EqualTo(bankName));
+            Assert.That(sut.ClearingNumberStart, Is.EqualTo(clearingStart));
+            Assert.That(sut.ClearingNumberEnd, Is.EqualTo(clearingEnd));
 
         }
 
@@ -63,8 +63,8 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Tests
         {
             var sut = new BankAccount(clearingNumber, accountNumber);
 
-            Assert.AreEqual(expected, sut.IsValid);
-            Assert.AreEqual(validationResult, sut.ValidationResult);
+            Assert.That(sut.IsValid, Is.EqualTo(expected));
+            Assert.That(sut.ValidationResult, Is.EqualTo(validationResult));
         }
 
         [TestCase("82149", "9234726124", "8214009234726124")]
@@ -72,8 +72,8 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Tests
         public void ShouldFormatBgc16(string clearingNumber, string accountNumber, string expected)
         {
             var sut = new BankAccount(clearingNumber, accountNumber);
-            
-            Assert.AreEqual(expected, sut.FormatBgc16);
+
+            Assert.That(sut.FormatBgc16, Is.EqualTo(expected));
         }
 
         [TestCase("1212121212", true)]
@@ -86,7 +86,7 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Tests
         {
             var sut = accountNumber.IsValidPersonnummerSamordningsnummer();
 
-            Assert.AreEqual(expected, sut);
+            Assert.That(sut, Is.EqualTo(expected));
         }
     }
 }
