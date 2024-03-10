@@ -28,21 +28,21 @@ namespace KajetanKazimierczak.SwedishBankAccounts.Tests
         {
             var sut = new BankGiro(account);
 
-            Assert.AreEqual(valid, sut.IsValid);
-            Assert.AreEqual(validationResult, sut.ValidationResult);
+            Assert.That(sut.IsValid, Is.EqualTo(valid));
+            Assert.That(sut.ValidationResult, Is.EqualTo(validationResult));
         }
 
         [TestCase("354-7247", "0003547247")]
         public void ShouldFormat10(string account, string expected)
         {
             var sut = new BankGiro(account);
-            Assert.AreEqual(expected, sut.FormatBgc10);
+            Assert.That(sut.FormatBgc10, Is.EqualTo(expected));
         }
         [TestCase("354-7247", "0000000003547247")]
         public void ShouldFormat16(string account, string expected)
         {
             var sut = new BankGiro(account);
-            Assert.AreEqual(expected, sut.FormatBgc16);
+            Assert.That(sut.FormatBgc16, Is.EqualTo(expected));
         }
     }
 }

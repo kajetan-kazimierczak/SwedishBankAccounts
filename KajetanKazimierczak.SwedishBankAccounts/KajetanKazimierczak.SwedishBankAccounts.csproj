@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.0;netstandard2.0;net6.0;net7.0</TargetFrameworks>
+    <TargetFrameworks>netstandard1.0;netstandard2.0;net6.0;net7.0;net8</TargetFrameworks>
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
     <Authors>Kajetan Kazimierczak</Authors>
@@ -10,13 +10,13 @@
     <Copyright>Kajetan Kazimierczak</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageTags>swedish bank account validator validate bankkonto bankgiro plusgiro</PackageTags>
-    <Version>1.1.0-beta2</Version>
+    <Version>1.1.0-beta3</Version>
     <Description>Can validate most swedish bank account numbers consisting of clearing number and account number. Also validates BankGiro and PlusGiro account numbers.</Description>
     <RepositoryUrl>https://github.com/kajetan-kazimierczak/SwedishBankAccounts</RepositoryUrl>
     <PackageLicenseUrl></PackageLicenseUrl>
     <PackageReleaseNotes>
-      Expoerimental P27 format support.
-      Buggfix: Sometimes incorrectly reported Handelsbanken accounts as valid.
+      Added .NET8 target.
+      Uppdated bank data according to document version 2024-02-22.
     </PackageReleaseNotes>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/kajetan-kazimierczak/SwedishBankAccounts</PackageProjectUrl>
@@ -41,7 +41,7 @@
 
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="6.0.0">
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="8.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
