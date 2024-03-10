@@ -88,10 +88,11 @@ namespace KajetanKazimierczak.SwedishBankAccounts
         public string BankName => _bank;
 
         /// <summary>
-        /// Cleaned up Clearing Number (first 4 digits of the account)
+        /// Cleaned up Clearing Number (first 4 or 5 digits of the account)
         /// </summary>
-        public string ClearingNumber => _clearingNumber;
+        public string ClearingNumber => _clearingNumber + _clearingCheckDigit;
 
+        
         /// <summary>
         /// Cleaned up Account number (without the Clearing Number)
         /// </summary>
