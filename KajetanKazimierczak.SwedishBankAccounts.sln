@@ -15,7 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 		.github\workflows\dotnet-core.yml = .github\workflows\dotnet-core.yml
 		global.json = global.json
+		icon.png = icon.png
 		LICENSE = LICENSE
+		README-nuget.md = README-nuget.md
 		README.md = README.md
 	EndProjectSection
 EndProject

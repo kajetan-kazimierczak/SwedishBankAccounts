@@ -73,7 +73,3 @@ if (!account.IsValid)
 Console.WriteLine("Account number valid");
 Console.WriteLine($"Validation result: {account.ValidationResult.ToString()}");
 ```
-
-
-## Known issues
-In rare occasions some of Swedbank’s accounts with clearing number beginning with '8' cannot be validated by a checksum calculation. These accounts will be flagged as invalid.

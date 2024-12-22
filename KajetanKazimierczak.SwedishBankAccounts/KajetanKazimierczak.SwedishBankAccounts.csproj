@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.0;netstandard2.0;net6.0;net7.0;net8</TargetFrameworks>
+    <TargetFrameworks>netstandard1.0;netstandard2.0;net8;net9</TargetFrameworks>
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
     <Authors>Kajetan Kazimierczak</Authors>
@@ -10,15 +10,16 @@
     <Copyright>Kajetan Kazimierczak</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageTags>swedish bank account validator validate bankkonto bankgiro plusgiro</PackageTags>
-    <Version>1.0.15</Version>
-    <Description>Can validate most swedish bank account numbers consisting of clearing number and account number. Also validates BankGiro and PlusGiro account numbers.</Description>
+    <Version>1.0.16</Version>
+    <Description>Can validate most Swedish bank account numbers consisting of clearing number and account number. Also validates BankGiro and PlusGiro account numbers.</Description>
     <RepositoryUrl>https://github.com/kajetan-kazimierczak/SwedishBankAccounts</RepositoryUrl>
-    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReadmeFile>README-nuget.md</PackageReadmeFile>
     <PackageReleaseNotes>
-      Added .NET8 target.
-      Uppdated bank data according to document version 2024-02-22.
+      Added .NET9 target.
+      Removed .NET6 and .NET9
     </PackageReleaseNotes>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/kajetan-kazimierczak/SwedishBankAccounts</PackageProjectUrl>
   </PropertyGroup>
 
@@ -33,18 +34,18 @@
 
 
   <ItemGroup>
-    <None Include="..\LICENSE">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
+    <None Include="..\LICENSE" Pack="true" PackagePath="" />
+    <None Include="..\icon.png" Pack="true" PackagePath="" />
+    <None Include="..\README-nuget.md" Pack="true" PackagePath="" />
   </ItemGroup>
 
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="8.0.0">
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="9.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
   </ItemGroup>
 
 </Project>
