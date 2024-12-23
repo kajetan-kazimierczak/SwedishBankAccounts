@@ -1,6 +1,7 @@
 # SwedishBankAccounts
 ![.NET Core Tests](https://github.com/kajetan-kazimierczak/SwedishBankAccounts/workflows/.NET%20Core%20Tests/badge.svg)
-[![NuGet Badge](https://buildstats.info/nuget/KajetanKazimierczak.SwedishBankAccounts)](https://www.nuget.org/packages/KajetanKazimierczak.SwedishBankAccounts/)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/KajetanKazimierczak.SwedishBankAccounts)](https://www.nuget.org/packages/KajetanKazimierczak.SwedishBankAccounts/)
+
 ## Info 
 
 Validate Swedish Bank Account numbers, PlusGiro and BankGiro. The account numbers are validated with checksum calculations.
