@@ -9,19 +9,27 @@
     <Product>Swedish Bank Account number validator</Product>
     <Copyright>Kajetan Kazimierczak</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageTags>swedish bank account validator validate bankkonto bankgiro plusgiro</PackageTags>
-    <Version>1.0.16</Version>
+    <PackageTags>swedish bank account validator validate bankkontRro bankgiro plusgiro</PackageTags>
+    <Version>1.0.17</Version>
     <Description>Can validate most Swedish bank account numbers consisting of clearing number and account number. Also validates BankGiro and PlusGiro account numbers.</Description>
-    <RepositoryUrl>https://github.com/kajetan-kazimierczak/SwedishBankAccounts</RepositoryUrl>
+    <RepositoryUrl>https://github.com/kajetan-kazimierczak/SwedishBankAccounts.git</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>icon.png</PackageIcon>
     <PackageReadmeFile>README-nuget.md</PackageReadmeFile>
     <PackageReleaseNotes>
       Added .NET9 target.
-      Removed .NET6 and .NET9
+      Removed .NET6 and .NET8
     </PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/kajetan-kazimierczak/SwedishBankAccounts</PackageProjectUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+    <Deterministic>true</Deterministic>
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+
   </PropertyGroup>
+
+
 
   <PropertyGroup>
     <DocumentationFile>bin\$(Configuration)\KajetanKazimierczak.SwedishBankAccounts.xml</DocumentationFile>
@@ -45,7 +53,6 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
   </ItemGroup>
 
 </Project>
