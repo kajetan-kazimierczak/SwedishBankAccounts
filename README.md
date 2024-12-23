@@ -1,6 +1,6 @@
 # SwedishBankAccounts
 ![.NET Core Tests](https://github.com/kajetan-kazimierczak/SwedishBankAccounts/workflows/.NET%20Core%20Tests/badge.svg)
-[![NuGet Downloads](https://img.shields.io/nuget/dt/KajetanKazimierczak.SwedishBankAccounts)](https://www.nuget.org/packages/KajetanKazimierczak.SwedishBankAccounts/)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/KajetanKazimierczak.SwedishBankAccounts?label=NuGet%20Downloads)](https://www.nuget.org/packages/KajetanKazimierczak.SwedishBankAccounts/)
 
 ## Info 
 
