@@ -9,7 +9,7 @@
     <Product>Swedish Bank Account number validator</Product>
     <Copyright>Kajetan Kazimierczak</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageTags>swedish bank account validator validate bankkontRro bankgiro plusgiro</PackageTags>
+    <PackageTags>swedish bank account validator validate bankkonto bankgiro plusgiro</PackageTags>
     <Version>1.0.17</Version>
     <Description>Can validate most Swedish bank account numbers consisting of clearing number and account number. Also validates BankGiro and PlusGiro account numbers.</Description>
     <RepositoryUrl>https://github.com/kajetan-kazimierczak/SwedishBankAccounts.git</RepositoryUrl>
