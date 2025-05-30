@@ -95,7 +95,7 @@ Console.WriteLine($"Validation result: {account.ValidationResult.ToString()}");
 ```
 
 ## ValidationResult
-The `ValidationResult` property provides detailed information about why an account number is invalid, including error codes and messages (e.g., invalid length, checksum failure, unknown bank, etc.).
+The `ValidationResult` property provides detailed information about why an account number is invalid, including error codes and messages (e.g., invalid length, checksum failure, etc.).
 
 ## Contributing
 Contributions are welcome! Please open issues or submit pull requests for improvements or bug fixes.
