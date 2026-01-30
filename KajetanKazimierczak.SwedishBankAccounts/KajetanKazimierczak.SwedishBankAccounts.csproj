@@ -18,7 +18,6 @@
     <PackageReadmeFile>README-nuget.md</PackageReadmeFile>
     <PackageReleaseNotes>
       Added .NET10 target.
-      Kept .NET9 for backward compatibility.
       Removed .NET8.
     </PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/kajetan-kazimierczak/SwedishBankAccounts</PackageProjectUrl>
