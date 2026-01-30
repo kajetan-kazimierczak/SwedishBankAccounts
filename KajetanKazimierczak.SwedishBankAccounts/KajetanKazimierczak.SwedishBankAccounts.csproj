@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.0;netstandard2.0;net8;net9</TargetFrameworks>
+    <TargetFrameworks>netstandard1.0;netstandard2.0;net9;net10.0</TargetFrameworks>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <Authors>Kajetan Kazimierczak</Authors>
@@ -10,15 +10,15 @@
     <Copyright>Kajetan Kazimierczak</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageTags>swedish bank account validator validate bankkonto bankgiro plusgiro</PackageTags>
-    <Version>1.0.17</Version>
+    <Version>1.0.18</Version>
     <Description>Can validate most Swedish bank account numbers consisting of clearing number and account number. Also validates BankGiro and PlusGiro account numbers.</Description>
     <RepositoryUrl>https://github.com/kajetan-kazimierczak/SwedishBankAccounts.git</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>icon.png</PackageIcon>
     <PackageReadmeFile>README-nuget.md</PackageReadmeFile>
     <PackageReleaseNotes>
-      Added .NET9 target.
-      Removed .NET6 and .NET8
+      Added .NET10 target.
+      Removed .NET8
     </PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/kajetan-kazimierczak/SwedishBankAccounts</PackageProjectUrl>
     <IncludeSymbols>true</IncludeSymbols>
@@ -26,6 +26,7 @@
 
     <Deterministic>true</Deterministic>
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    <NoWarn>$(NoWarn);NU1903</NoWarn>
 
   </PropertyGroup>
 
